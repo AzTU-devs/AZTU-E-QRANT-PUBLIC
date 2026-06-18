@@ -105,7 +105,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href={siteConfig.portalUrl}
+              href="http://admin-e-grant.aztu.edu.az"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-1 flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/10 text-white text-sm font-medium"
