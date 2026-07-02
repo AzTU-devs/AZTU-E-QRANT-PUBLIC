@@ -50,7 +50,7 @@ export default function HomeContent() {
                   href={siteConfig.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-brand transition-colors hover:bg-[#d4ad4a]"
+                  className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#b84e30]"
                 >
                   Müraciət et <ArrowRight size={17} />
                 </a>
@@ -198,7 +198,7 @@ export default function HomeContent() {
             href={siteConfig.portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 rounded-md bg-accent px-7 py-4 text-sm font-semibold text-brand transition-colors hover:bg-[#d4ad4a]"
+            className="inline-flex shrink-0 items-center gap-2 rounded-md bg-accent px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#b84e30]"
           >
             Portala keç <ArrowRight size={17} />
           </a>

@@ -14,7 +14,7 @@ export const siteConfig = {
   apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://e-grant.aztu.edu.az",
   locale: "az_AZ",
   // Where users go to actually apply (the existing admin/portal SPA).
-  portalUrl: "http://e-grant.aztu.edu.az/signin",
+  portalUrl: "https://admin-e-grant.aztu.edu.az",
   keywords: [
     "AzTU",
     "Azərbaycan Texniki Universiteti",

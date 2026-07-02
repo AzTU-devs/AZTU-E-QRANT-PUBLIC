@@ -69,7 +69,7 @@ export default function Header() {
               href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-[#d4ad4a]"
+              className="group hidden sm:inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#b84e30]"
             >
               <span className="hidden lg:block">Qrant portalı</span>
               <LogIn className="transition-transform group-hover:translate-x-0.5" size={18} />
@@ -106,12 +106,12 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="http://admin-e-grant.aztu.edu.az"
+              href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/10 text-white text-sm font-medium"
+              className="mt-1 flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white"
             >
-              <LogIn size={18} /> Daxili qrant portalı
+              <LogIn size={18} /> Qrant portalı
             </a>
           </nav>
         )}

@@ -9,9 +9,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* AzTU navy anchor + academic gold accent (real theme colors → opacity works) */
+  /* AzTU navy anchor + terracotta accent (real theme colors → opacity works) */
   --color-brand: #141e4f;
-  --color-accent: #c19a3e;
+  --color-accent: #cf5b3a;
   --color-paper: #f7f4ee;
   --color-ink: #191b2c;
   --font-sans: var(--font-inter);
@@ -37,7 +37,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #8a6a1e; /* darker gold, legible on light */
+  color: #a8492e; /* darker terracotta, legible on light */
 }
 .rule-accent { height: 2px; width: 3rem; background: var(--color-accent); }
 
