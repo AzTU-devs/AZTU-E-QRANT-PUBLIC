@@ -10,7 +10,9 @@ import { siteConfig } from "@/lib/site";
 const navItems = [
   { href: "/", label: "Ana səhifə" },
   { href: "/projects", label: "Layihələr" },
+  { href: "/winners", label: "Qaliblər" },
   { href: "/leads", label: "Rəhbərlər" },
+  { href: "/announcements", label: "Elanlar" },
 ];
 
 export default function Header() {

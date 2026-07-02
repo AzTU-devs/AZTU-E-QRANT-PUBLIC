@@ -22,6 +22,7 @@ export interface ProjectListItem {
   description: string | null;
   year: number | null;
   priotet_name: string | null;
+  winner?: boolean;
   lead: { name: string | null; surname: string | null } | null;
 }
 
@@ -31,8 +32,29 @@ export interface ProjectDetail {
   description: string | null;
   year: number | null;
   priotet_name: string | null;
+  winner?: boolean;
   lead: Person | null;
   collaborators: Person[];
+}
+
+export interface WinnerItem {
+  project_code: number;
+  project_name: string | null;
+  description: string | null;
+  year: number | null;
+  priotet_name: string | null;
+  lead: Person | null;
+  collaborators: Person[];
+}
+
+export interface Announcement {
+  id: number;
+  title: string;
+  content: string;
+  published: boolean;
+  created_by: string | null;
+  created_at: string | null;
+  updated_at: string | null;
 }
 
 export interface LeadTreeNode {
@@ -97,6 +119,16 @@ export async function getProject(code: number | string): Promise<ProjectDetail |
 
 export async function getLeadsTree(): Promise<LeadTreeNode[]> {
   const data = await apiGet<LeadTreeNode[]>("/api/public/leads-tree");
+  return data ?? [];
+}
+
+export async function getWinners(): Promise<WinnerItem[]> {
+  const data = await apiGet<WinnerItem[]>("/api/public/winners");
+  return data ?? [];
+}
+
+export async function getAnnouncements(): Promise<Announcement[]> {
+  const data = await apiGet<Announcement[]>("/api/public/announcements");
   return data ?? [];
 }
 

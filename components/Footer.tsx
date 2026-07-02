@@ -79,7 +79,9 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-blue-100/70">
               <li><Link href="/" className="hover:text-white transition-colors">Ana səhifə</Link></li>
               <li><Link href="/projects" className="hover:text-white transition-colors">Layihələr</Link></li>
+              <li><Link href="/winners" className="hover:text-white transition-colors">Qalib layihələr</Link></li>
               <li><Link href="/leads" className="hover:text-white transition-colors">Rəhbərlər və icraçılar</Link></li>
+              <li><Link href="/announcements" className="hover:text-white transition-colors">Elanlar</Link></li>
               <li>
                 <a href={siteConfig.portalUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   Qrant portalı
