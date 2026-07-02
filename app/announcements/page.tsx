@@ -86,9 +86,11 @@ export default async function AnnouncementsPage() {
                     </span>
                   )}
                 </div>
-                <p className="mt-4 whitespace-pre-line text-gray-600 leading-relaxed">
-                  {announcement.content}
-                </p>
+                {/* content is rich-text HTML, sanitized server-side (bleach) on write */}
+                <div
+                  className="rich-text mt-4 text-gray-600 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: announcement.content }}
+                />
               </article>
             ))}
           </div>
