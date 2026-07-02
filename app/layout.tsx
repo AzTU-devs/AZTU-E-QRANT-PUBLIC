@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +9,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -101,7 +108,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="az" className={`${inter.variable} h-full`}>
+    <html lang="az" className={`${inter.variable} ${fraunces.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <script
           type="application/ld+json"

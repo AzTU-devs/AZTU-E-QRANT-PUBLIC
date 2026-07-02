@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* Warm ivory paper — editorial/academic, not the cool AI gray-blue */
+  --background: #f7f4ee;
+  --foreground: #191b2c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* AzTU navy anchor + academic gold accent (real theme colors → opacity works) */
+  --color-brand: #141e4f;
+  --color-accent: #c19a3e;
+  --color-paper: #f7f4ee;
+  --color-ink: #191b2c;
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
 }
 
 html {
@@ -18,23 +25,21 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  font-feature-settings: "ss01", "cv01";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Brand color utilities (rgb(20,30,79)) */
-.bg-brand {
-  background-color: rgb(20 30 79);
+/* Editorial helpers */
+.font-serif { font-family: var(--font-fraunces), Georgia, "Times New Roman", serif; }
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a6a1e; /* darker gold, legible on light */
 }
-.text-brand {
-  color: rgb(20 30 79);
-}
-.border-brand {
-  border-color: rgb(20 30 79);
-}
-.hover\:bg-brand:hover {
-  background-color: rgb(20 30 79);
-}
+.rule-accent { height: 2px; width: 3rem; background: var(--color-accent); }
 
 /* Line clamp helpers */
 .line-clamp-3 {

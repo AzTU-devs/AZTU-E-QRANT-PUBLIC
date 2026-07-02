@@ -23,9 +23,9 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-to-r from-[rgb(20,30,79)] via-[rgb(30,45,120)] to-[rgb(20,30,79)] shadow-md border-b border-white/10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center justify-between py-3">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-brand">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-center justify-between py-3.5">
           {/* Logos */}
           <Link href="/" className="flex items-center gap-4 flex-shrink-0" aria-label="Ana səhifə">
             <Image
@@ -33,7 +33,7 @@ export default function Header() {
               alt="Azərbaycan Texniki Universiteti"
               width={48}
               height={48}
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-10 md:h-11 w-auto object-contain"
               priority
             />
             <span className="h-8 w-px bg-white/20 hidden sm:block" />
@@ -42,23 +42,24 @@ export default function Header() {
               alt="AzTU E-Qrant"
               width={48}
               height={48}
-              className="h-10 md:h-12 w-auto object-contain hidden sm:block"
+              className="h-10 md:h-11 w-auto object-contain hidden sm:block"
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Əsas naviqasiya">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Əsas naviqasiya">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(item.href)
-                    ? "bg-white/15 text-white"
-                    : "text-blue-100/80 hover:text-white hover:bg-white/10"
+                className={`relative py-1 text-sm font-medium tracking-wide transition-colors ${
+                  isActive(item.href) ? "text-white" : "text-blue-100/70 hover:text-white"
                 }`}
               >
                 {item.label}
+                {isActive(item.href) && (
+                  <span className="absolute -bottom-[3px] left-0 h-0.5 w-full bg-accent" />
+                )}
               </Link>
             ))}
           </nav>
@@ -68,12 +69,10 @@ export default function Header() {
               href={siteConfig.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-all border border-white/10"
+              className="group hidden sm:inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:bg-[#d4ad4a]"
             >
-              <span className="hidden lg:block text-white text-sm font-medium">
-                Daxili qrant portalı
-              </span>
-              <LogIn className="text-white transition-transform group-hover:translate-x-0.5" size={20} />
+              <span className="hidden lg:block">Qrant portalı</span>
+              <LogIn className="transition-transform group-hover:translate-x-0.5" size={18} />
             </a>
 
             {/* Mobile menu toggle */}

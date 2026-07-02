@@ -42,7 +42,8 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand text-white border-t border-white/10">
+    <footer className="bg-brand text-white">
+      <div className="h-1 w-full bg-accent" />
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}

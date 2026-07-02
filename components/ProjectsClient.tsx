@@ -57,7 +57,7 @@ export default function ProjectsClient({ projects }: { projects: ProjectListItem
         {visibleGroups.map((group) => (
           <section key={group.label} aria-labelledby={`year-${group.label}`}>
             <div className="flex items-center gap-4 mb-8">
-              <h2 id={`year-${group.label}`} className="text-2xl md:text-3xl font-bold text-brand">
+              <h2 id={`year-${group.label}`} className="font-serif text-2xl md:text-3xl font-semibold text-brand">
                 {group.label}
               </h2>
               <span className="text-sm text-gray-400 font-medium">
