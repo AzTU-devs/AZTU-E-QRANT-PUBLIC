@@ -49,8 +49,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-start gap-6 col-span-1 md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-4">
-              <Image src="/aztu-logo-light.png" alt="AzTU" width={48} height={48} className="h-12 w-auto" />
-              <Image src="/e-grant-logo-light.png" alt="E-Qrant" width={48} height={48} className="h-12 w-auto" />
+              <Image src="/aztu-logo-light.png" alt="AzTU" width={48} height={48} className="h-12 w-auto" unoptimized />
+              <Image src="/e-grant-logo-light.png" alt="E-Qrant" width={48} height={48} className="h-12 w-auto" unoptimized />
             </div>
             <p className="text-blue-100/70 text-sm leading-relaxed max-w-xs">
               Azərbaycan Texniki Universiteti elmi potensialın inkişafı və innovativ
