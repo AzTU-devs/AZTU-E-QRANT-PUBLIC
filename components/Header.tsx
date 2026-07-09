@@ -34,6 +34,7 @@ export default function Header() {
               height={48}
               className="h-10 md:h-11 w-auto object-contain"
               priority
+              unoptimized
             />
             <span className="h-8 w-px bg-white/20 hidden sm:block" />
             <Image
@@ -42,6 +43,7 @@ export default function Header() {
               width={48}
               height={48}
               className="h-10 md:h-11 w-auto object-contain hidden sm:block"
+              unoptimized
             />
           </Link>
 

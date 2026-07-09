@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Megaphone } from "lucide-react";
-import { getAnnouncement, htmlExcerpt } from "@/lib/api";
+import { getAnnouncements, htmlExcerpt, slugify } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
 
 // Always fetch fresh so newly published/edited announcements show immediately.
 export const dynamic = "force-dynamic";
 
-type Params = { id: string };
+type Params = { slug: string };
 
 function formatDate(value: string | null): string {
   if (!value) return "";
@@ -17,27 +17,32 @@ function formatDate(value: string | null): string {
   return date.toLocaleDateString("az-AZ", { year: "numeric", month: "long", day: "numeric" });
 }
 
+async function findBySlug(slug: string) {
+  const announcements = await getAnnouncements();
+  return announcements.find((a) => slugify(a.title) === slug) ?? null;
+}
+
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  const { id } = await params;
-  const announcement = await getAnnouncement(id);
+  const { slug } = await params;
+  const announcement = await findBySlug(slug);
   if (!announcement) return { title: "Elan tapılmadı" };
   const description = htmlExcerpt(announcement.content, 200);
   return {
     title: announcement.title,
     description,
-    alternates: { canonical: `/announcements/${announcement.id}` },
+    alternates: { canonical: `/announcements/${slugify(announcement.title)}` },
     openGraph: {
       title: `${announcement.title} | AzTU E-Qrant`,
       description,
-      url: `${siteConfig.url}/announcements/${announcement.id}`,
+      url: `${siteConfig.url}/announcements/${slugify(announcement.title)}`,
       type: "article",
     },
   };
 }
 
 export default async function AnnouncementDetailPage({ params }: { params: Promise<Params> }) {
-  const { id } = await params;
-  const announcement = await getAnnouncement(id);
+  const { slug } = await params;
+  const announcement = await findBySlug(slug);
 
   if (!announcement) {
     notFound();

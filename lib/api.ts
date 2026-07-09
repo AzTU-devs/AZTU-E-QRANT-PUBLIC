@@ -147,6 +147,21 @@ export function htmlExcerpt(html: string | null, max = 180): string {
   return text.length > max ? text.slice(0, max).trimEnd() + "…" : text;
 }
 
+/** SEO-friendly slug from a title (transliterates Azerbaijani letters). */
+export function slugify(text: string | null): string {
+  if (!text) return "";
+  const az: Record<string, string> = { "ə": "e", "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u" };
+  return text
+    .toLowerCase()
+    .replace(/[əçğıöşü]/g, (c) => az[c] ?? c)
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-+|-+$)/g, "")
+    .slice(0, 80)
+    .replace(/-+$/, "");
+}
+
 /* ------------------------------------------------------------------ */
 /* Display helpers                                                     */
 /* ------------------------------------------------------------------ */

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Megaphone, CalendarDays, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import { getAnnouncements, htmlExcerpt } from "@/lib/api";
+import { getAnnouncements, htmlExcerpt, slugify } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
 
 // Render on demand so newly published announcements appear immediately.
@@ -94,7 +94,7 @@ export default async function AnnouncementsPage() {
                   {htmlExcerpt(announcement.content, 220)}
                 </p>
                 <Link
-                  href={`/announcements/${announcement.id}`}
+                  href={`/announcements/${slugify(announcement.title)}`}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-2.5 transition-all"
                 >
                   Ətraflı oxu <ArrowRight size={15} />
