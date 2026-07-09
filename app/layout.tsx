@@ -55,11 +55,6 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/e-grant-logo-dark.png"],
   },
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
   robots: {
     index: true,
     follow: true,
@@ -90,7 +85,7 @@ export default function RootLayout({
     name: siteConfig.organization,
     alternateName: "AzTU",
     url: "https://aztu.edu.az",
-    logo: `${siteConfig.url}/aztu-logo-light.png`,
+    logo: `${siteConfig.url}/aztu-logo-dark.png`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "H.Cavid prospekti 25",

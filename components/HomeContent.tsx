@@ -11,7 +11,7 @@ const priorities = [
 ];
 
 const principles = [
-  "Kiçik yaradıcı kollektivlər (maksimum 7 nəfər)",
+  "Kiçik yaradıcı kollektivlər",
   "Təcrübəli və beynəlxalq nüfuzlu rəhbərlər",
   "Digər fondlar tərəfindən maliyyələşməyən mövzular",
   "Texniki və elmi ekspertiza mərhələləri",
@@ -20,10 +20,10 @@ const principles = [
 ];
 
 const stats = [
-  { value: "30 000", unit: "AZN", label: "Maksimal büdcə" },
+  { value: "50 000", unit: "AZN", label: "Maksimal büdcə" },
   { value: "6–12", unit: "ay", label: "Layihə müddəti" },
-  { value: "7", unit: "nəfər", label: "Maksimal komanda" },
-  { value: "300 000", unit: "AZN", label: "Ümumi fond" },
+  { value: "3–5", unit: "nəfər", label: "Komanda üzvləri" },
+  { value: "300 000+", unit: "AZN", label: "Ümumi fond" },
 ];
 
 export default function HomeContent() {
@@ -71,7 +71,7 @@ export default function HomeContent() {
               <dl className="mt-8 space-y-5">
                 <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
                   <dt className="text-sm text-blue-100/60">Son müraciət</dt>
-                  <dd className="font-serif text-lg text-white">30 oktyabr</dd>
+                  <dd className="font-serif text-lg text-white">30 avqust</dd>
                 </div>
                 <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
                   <dt className="text-sm text-blue-100/60">Qiymətləndirmə</dt>
@@ -191,7 +191,7 @@ export default function HomeContent() {
               Layihə təklifləri qrant portalı vasitəsilə qəbul edilir.
             </h2>
             <p className="mt-4 text-blue-100/70">
-              Son müraciət tarixi: <span className="font-semibold text-white">30 oktyabr 2025-ci il</span>
+              Son müraciət tarixi: <span className="font-semibold text-white">30 avqust 2025-ci il</span>
             </p>
           </div>
           <a
