@@ -86,12 +86,13 @@ body {
 }
 .rich-text .ql-align-center { text-align: center; }
 .rich-text .ql-align-right { text-align: right; }
-.rich-text .ql-align-justify { text-align: justify; }
-/* Prevent long words/URLs and wide media from overflowing the container.
-   Use `break-word` (not `anywhere`) so normal words — including hyphenated ones
-   like "elmi-tədqiqat" — are NOT split mid-word; only genuinely too-long tokens
-   break. */
-.rich-text { overflow-wrap: break-word; word-break: normal; hyphens: none; }
+/* Justify is intentionally rendered as left-align: browsers can't hyphenate
+   Azerbaijani, so justified text produces big word-gaps and mid-word breaks.
+   Left-align keeps prose clean and formal. */
+.rich-text .ql-align-justify { text-align: left; }
+/* Whole-word wrapping: never split a normal word mid-word (only genuinely
+   too-long tokens like URLs break). */
+.rich-text { overflow-wrap: break-word; word-break: normal; hyphens: none; text-align: left; }
 .rich-text img { max-width: 100%; height: auto; }
 .rich-text table { width: 100%; border-collapse: collapse; margin: 0.85rem 0; display: block; overflow-x: auto; }
 .rich-text th, .rich-text td { border: 1px solid #d1d5db; padding: 6px 10px; text-align: left; vertical-align: top; }
