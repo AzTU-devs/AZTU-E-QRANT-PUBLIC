@@ -140,10 +140,21 @@ export async function getAnnouncement(id: number | string): Promise<Announcement
   return apiGet<Announcement>(`/api/public/announcement/${id}`, { noStore: true });
 }
 
-/** Plain-text excerpt from rich-text HTML (for list previews / meta). */
+/** Plain-text excerpt from rich-text HTML (for list previews / meta).
+ * Only block-level boundaries add a space, so inline tags (bold, links, spans)
+ * don't split words — e.g. "<strong>W</strong>ord" stays "Word", not "W ord". */
 export function htmlExcerpt(html: string | null, max = 180): string {
   if (!html) return "";
-  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const text = html
+    .replace(/<\/(p|div|li|h[1-6]|tr|blockquote)>/gi, " ")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/\s+/g, " ")
+    .trim();
   return text.length > max ? text.slice(0, max).trimEnd() + "…" : text;
 }
 
