@@ -49,7 +49,7 @@ export default async function AnnouncementDetailPage({ params }: { params: Promi
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 md:py-16">
+    <div className="mx-auto w-[90%] lg:w-[70%] px-4 sm:px-6 py-12 md:py-16">
       <Link
         href="/announcements"
         className="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-brand transition-colors"
