@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Megaphone, CalendarDays } from "lucide-react";
+import Link from "next/link";
+import { Megaphone, CalendarDays, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import { getAnnouncements } from "@/lib/api";
+import { getAnnouncements, htmlExcerpt } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+
+// Render on demand so newly published announcements appear immediately.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Elanlar",
@@ -86,11 +90,15 @@ export default async function AnnouncementsPage() {
                     </span>
                   )}
                 </div>
-                {/* content is rich-text HTML, sanitized server-side (bleach) on write */}
-                <div
-                  className="rich-text mt-4 text-gray-600 leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: announcement.content }}
-                />
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  {htmlExcerpt(announcement.content, 220)}
+                </p>
+                <Link
+                  href={`/announcements/${announcement.id}`}
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-2.5 transition-all"
+                >
+                  Ətraflı oxu <ArrowRight size={15} />
+                </Link>
               </article>
             ))}
           </div>

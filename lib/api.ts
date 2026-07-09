@@ -87,11 +87,15 @@ function normalizedBase(): string {
   return siteConfig.apiBaseUrl.replace(/\/+$/, "").replace(/\/api$/i, "");
 }
 
-async function apiGet<T>(path: string): Promise<T | null> {
+async function apiGet<T>(path: string, opts?: { noStore?: boolean }): Promise<T | null> {
   const url = `${normalizedBase()}${path}`;
   try {
     const res = await fetch(url, {
-      next: { revalidate: REVALIDATE_SECONDS },
+      // Time-sensitive data (announcements) opts out of the ISR cache so newly
+      // published items appear immediately; everything else uses ISR.
+      ...(opts?.noStore
+        ? { cache: "no-store" as const }
+        : { next: { revalidate: REVALIDATE_SECONDS } }),
       headers: { Accept: "application/json" },
     });
 
@@ -128,8 +132,19 @@ export async function getWinners(): Promise<WinnerItem[]> {
 }
 
 export async function getAnnouncements(): Promise<Announcement[]> {
-  const data = await apiGet<Announcement[]>("/api/public/announcements");
+  const data = await apiGet<Announcement[]>("/api/public/announcements", { noStore: true });
   return data ?? [];
+}
+
+export async function getAnnouncement(id: number | string): Promise<Announcement | null> {
+  return apiGet<Announcement>(`/api/public/announcement/${id}`, { noStore: true });
+}
+
+/** Plain-text excerpt from rich-text HTML (for list previews / meta). */
+export function htmlExcerpt(html: string | null, max = 180): string {
+  if (!html) return "";
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  return text.length > max ? text.slice(0, max).trimEnd() + "…" : text;
 }
 
 /* ------------------------------------------------------------------ */
