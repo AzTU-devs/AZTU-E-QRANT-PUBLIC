@@ -191,7 +191,7 @@ export default function HomeContent() {
               Layihə təklifləri qrant portalı vasitəsilə qəbul edilir.
             </h2>
             <p className="mt-4 text-blue-100/70">
-              Son müraciət tarixi: <span className="font-semibold text-white">30 avqust 2025-ci il</span>
+              Son müraciət tarixi: <span className="font-semibold text-white">30 avqust 2026-ci il</span>
             </p>
           </div>
           <a
@@ -213,7 +213,7 @@ export default function HomeContent() {
             <div className="rule-accent mt-3" />
             <h2 className="mt-5 font-serif text-3xl font-semibold text-brand">Suallarınız var?</h2>
             <p className="mt-4 text-ink/70">
-              AzTU Tədqiqat və İnkişaf Departamenti ilə əlaqə saxlaya bilərsiniz.
+              AzTU Tədqiqat, inkişaf və reputasiya departamenti ilə əlaqə saxlaya bilərsiniz.
             </p>
           </div>
           <div className="lg:col-span-8">
