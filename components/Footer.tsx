@@ -135,7 +135,7 @@ export default function Footer() {
 
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-100/50">
           <p>© {new Date().getFullYear()} Azərbaycan Texniki Universiteti. Bütün hüquqlar qorunur.</p>
-          <p>AzTU Tədqiqat və İnkişaf Departamenti</p>
+          <p>AzTU Tədqiqat, inkişaf və reputasiya Departamenti</p>
         </div>
       </div>
     </footer>
