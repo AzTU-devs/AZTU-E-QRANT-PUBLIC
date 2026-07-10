@@ -47,7 +47,7 @@ export default async function LeadsPage() {
       <PageHero
         eyebrow="Komanda strukturu"
         title="Rəhbərlər və icraçılar"
-        subtitle="Hər layihə rəhbərini açaraq onun komandasındakı icraçıları ağac strukturunda görə bilərsiniz."
+        subtitle="Qalib layihələrin rəhbərləri. Hər rəhbəri açaraq onun komandasındakı icraçıları ağac strukturunda görə bilərsiniz."
       />
       <LeadsTreeClient nodes={nodes} />
     </>
