@@ -5,7 +5,7 @@ import { siteConfig } from "./site";
 /* ------------------------------------------------------------------ */
 
 export interface Person {
-  fin_kod: string;
+  // No FIN code: the public API never publishes personal identifiers.
   name: string | null;
   surname: string | null;
   father_name?: string | null;
@@ -96,7 +96,14 @@ async function apiGet<T>(path: string, opts?: { noStore?: boolean }): Promise<T 
       ...(opts?.noStore
         ? { cache: "no-store" as const }
         : { next: { revalidate: REVALIDATE_SECONDS } }),
-      headers: { Accept: "application/json" },
+      // Server-to-server key: these requests run on the Next.js server, never
+      // in a visitor's browser, so the key is not exposed. The backend refuses
+      // /api/public/* without it. (No NEXT_PUBLIC_ prefix — keep it that way,
+      // or Next.js would bundle it into client code.)
+      headers: {
+        Accept: "application/json",
+        ...(process.env.PUBLIC_API_KEY ? { "X-Public-Api-Key": process.env.PUBLIC_API_KEY } : {}),
+      },
     });
 
     if (!res.ok) {

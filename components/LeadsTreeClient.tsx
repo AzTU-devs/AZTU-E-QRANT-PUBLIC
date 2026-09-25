@@ -59,8 +59,8 @@ function TreeNode({ node, defaultOpen }: { node: LeadTreeNode; defaultOpen: bool
           <div className="px-4 sm:px-5 pb-5 pt-1">
             <div className="ml-5 sm:ml-6 border-l-2 border-dashed border-gray-200 pl-5 sm:pl-6 space-y-2">
               {count > 0 ? (
-                node.collaborators.map((c) => (
-                  <div key={c.fin_kod} className="relative flex items-center gap-3 py-1.5">
+                node.collaborators.map((c, i) => (
+                  <div key={`${c.surname ?? ""}-${c.name ?? ""}-${i}`} className="relative flex items-center gap-3 py-1.5">
                     <span className="absolute -left-[21px] sm:-left-[25px] top-1/2 w-4 sm:w-5 h-px bg-gray-200" aria-hidden />
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-xs font-bold">
                       {personInitials(c)}

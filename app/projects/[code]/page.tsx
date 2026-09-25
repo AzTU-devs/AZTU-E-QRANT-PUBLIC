@@ -136,8 +136,8 @@ export default async function ProjectDetailPage({
           </h2>
           {project.collaborators.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.collaborators.map((c) => (
-                <PersonCard key={c.fin_kod} person={c} role="İcraçı" />
+              {project.collaborators.map((c, i) => (
+                <PersonCard key={`${c.surname ?? ""}-${c.name ?? ""}-${i}`} person={c} role="İcraçı" />
               ))}
             </div>
           ) : (
