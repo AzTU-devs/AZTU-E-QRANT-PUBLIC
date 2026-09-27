@@ -4,6 +4,7 @@ import { Megaphone, CalendarDays, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { getAnnouncements, htmlExcerpt, slugify } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 // Render on demand so newly published announcements appear immediately.
 export const dynamic = "force-dynamic";
@@ -56,7 +57,7 @@ export default async function AnnouncementsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <PageHero
         eyebrow="AzTU Daxili Qrant Müsabiqəsi"

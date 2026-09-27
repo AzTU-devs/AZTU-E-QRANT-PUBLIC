@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomeContent from "@/components/HomeContent";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   // Home shares the root segment with the layout, so the title template does
@@ -29,7 +30,7 @@ export default function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <HomeContent />
     </>

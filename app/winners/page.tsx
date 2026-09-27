@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import WinnersClient from "@/components/WinnersClient";
 import { getWinners } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Qalib layihələr",
@@ -42,7 +43,7 @@ export default async function WinnersPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <PageHero
         eyebrow="AzTU Daxili Qrant Müsabiqəsi"

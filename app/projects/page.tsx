@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import ProjectsClient from "@/components/ProjectsClient";
 import { getProjects } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Layihələr",
@@ -42,7 +43,7 @@ export default async function ProjectsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <PageHero
         eyebrow="AzTU Daxili Qrant Müsabiqəsi"

@@ -5,6 +5,7 @@ import { ArrowLeft, Users, Calendar, Tag, FileText } from "lucide-react";
 import { getProject, fullName, UNKNOWN_YEAR } from "@/lib/api";
 import PersonCard from "@/components/PersonCard";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 type Params = { code: string };
 
@@ -75,7 +76,7 @@ export default async function ProjectDetailPage({
     <article className="bg-gray-50/50 min-h-[60vh]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
 
       {/* Header */}

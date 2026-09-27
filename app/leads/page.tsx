@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import LeadsTreeClient from "@/components/LeadsTreeClient";
 import { getLeadsTree, fullName } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+import { serializeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Rəhbərlər və icraçılar",
@@ -42,7 +43,7 @@ export default async function LeadsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <PageHero
         eyebrow="Komanda strukturu"
