@@ -1,4 +1,4 @@
-import { Person, fullName } from "@/lib/api";
+import { Person, fullName } from "@/lib/model";
 import { Crown, GraduationCap, Building2 } from "lucide-react";
 
 function initials(p: Person | null): string {

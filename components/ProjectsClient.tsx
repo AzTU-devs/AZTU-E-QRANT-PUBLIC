@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, User, Tag, FolderOpen } from "lucide-react";
-import { ProjectListItem, groupByYear, fullName } from "@/lib/api";
+import { ProjectListItem, groupByYear, fullName } from "@/lib/model";
 
 export default function ProjectsClient({ projects }: { projects: ProjectListItem[] }) {
   const groups = useMemo(() => groupByYear(projects), [projects]);

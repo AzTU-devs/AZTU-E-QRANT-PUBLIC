@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, User, Tag, Trophy, Users } from "lucide-react";
-import { WinnerItem, fullName } from "@/lib/api";
+import { WinnerItem, fullName } from "@/lib/model";
 
 export default function WinnersClient({ winners }: { winners: WinnerItem[] }) {
   if (winners.length === 0) {

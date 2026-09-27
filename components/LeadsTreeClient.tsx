@@ -10,7 +10,7 @@ import {
   GitBranch,
   ExternalLink,
 } from "lucide-react";
-import { LeadTreeNode, Person, fullName } from "@/lib/api";
+import { LeadTreeNode, Person, fullName } from "@/lib/model";
 
 function personInitials(p: Person | null): string {
   if (!p) return "?";
