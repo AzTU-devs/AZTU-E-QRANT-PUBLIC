@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Megaphone } from "lucide-react";
 import { getAnnouncements, htmlExcerpt, slugify } from "@/lib/api";
 import { siteConfig } from "@/lib/site";
+import { sanitizeAnnouncement } from "@/lib/sanitize";
 
 // Always fetch fresh so newly published/edited announcements show immediately.
 export const dynamic = "force-dynamic";
@@ -72,7 +73,7 @@ export default async function AnnouncementDetailPage({ params }: { params: Promi
 
         <div
           className="rich-text mt-8 text-gray-700 leading-relaxed border-t border-brand/10 pt-8"
-          dangerouslySetInnerHTML={{ __html: announcement.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeAnnouncement(announcement.content) }}
         />
       </article>
     </div>
